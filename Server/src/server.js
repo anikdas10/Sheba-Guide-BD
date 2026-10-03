@@ -4,6 +4,7 @@ require("dotenv").config();
 const aiRoutes = require("./routes/ai.route");
 const app = express();
 const { connectDB } = require("../config/db");
+const serviceRoutes = require("./routes/service.routes");
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +24,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-app.use("/api/ai", aiRoutes);
+app.use("/api/services", serviceRoutes);
 
 const PORT = process.env.PORT || 5000;
 

@@ -5,8 +5,11 @@ const { connectDB, getDB } = require("../../config/db");
 const services = [
   {
     id: "birth-registration",
+
     name: "Birth Registration",
+
     nameBn: "জন্ম নিবন্ধন",
+
     category: "identity",
 
     keywords: [
@@ -18,7 +21,7 @@ const services = [
     ],
 
     descriptionBn:
-      "জন্ম নিবন্ধন সংক্রান্ত তথ্য, আবেদন এবং সংশোধন বিষয়ে সহায়তা।",
+      "জন্ম নিবন্ধন, জন্ম নিবন্ধনের তথ্য সংশোধন এবং সনদ সংক্রান্ত সরকারি সেবা।",
 
     subServices: [
       {
@@ -26,23 +29,44 @@ const services = [
 
         nameBn: "জন্ম নিবন্ধন তথ্য সংশোধন",
 
-        keywords: ["নাম ভুল", "তথ্য ভুল", "সংশোধন", "ভুল ঠিক", "correction"],
+        keywords: [
+          "নাম ভুল",
+          "তথ্য ভুল",
+          "সংশোধন",
+          "ভুল ঠিক",
+          "জন্ম নিবন্ধন সংশোধন",
+        ],
 
-        documents: ["সংশোধনের প্রয়োজনীয় প্রমাণপত্র", "জন্ম নিবন্ধনের তথ্য"],
+        documents: [
+          "সংশোধনের প্রয়োজনীয় প্রমাণপত্র",
+          "জন্ম নিবন্ধনের প্রয়োজনীয় তথ্য",
+        ],
 
         steps: [
-          "সংশ্লিষ্ট সরকারি জন্ম নিবন্ধন সেবা ব্যবস্থায় প্রবেশ করুন।",
-          "সংশোধনের প্রয়োজনীয় তথ্য প্রদান করুন।",
-          "প্রয়োজনীয় supporting documents প্রদান করুন।",
-          "সংশ্লিষ্ট কর্তৃপক্ষের নির্দেশনা অনুসরণ করুন।",
+          "BDRIS-এর জন্ম নিবন্ধন তথ্য সংশোধন সেবায় প্রবেশ করুন।",
+          "জন্ম নিবন্ধন নম্বর এবং জন্ম তারিখ দিয়ে প্রয়োজনীয় তথ্য যাচাই করুন।",
+          "যে তথ্য সংশোধন করতে চান সেটি নির্বাচন করুন।",
+          "সংশোধিত তথ্য এবং সংশোধনের কারণ প্রদান করুন।",
+          "প্রয়োজনীয় supporting document upload করুন।",
+          "আবেদনকারীর প্রয়োজনীয় যোগাযোগের তথ্য প্রদান করে আবেদন সম্পন্ন করুন।",
         ],
 
         officialLinks: [
           {
-            title: "Bangladesh Birth Registration",
+            title: "জন্ম নিবন্ধন তথ্য সংশোধন",
+            url: "https://www.bdris.gov.bd/br/correction",
+          },
+          {
+            title: "BDRIS",
             url: "https://bdris.gov.bd/",
           },
         ],
+
+        verification: {
+          verified: true,
+          source: "Bangladesh Birth Registration Information System",
+          lastVerified: "2026-10-03",
+        },
       },
     ],
   },
@@ -104,33 +128,62 @@ const services = [
 
     category: "identity",
 
-    keywords: ["nid", "NID", "জাতীয় পরিচয়পত্র", "ভোটার আইডি", "আইডি কার্ড"],
+    keywords: [
+      "nid",
+      "NID",
+      "জাতীয় পরিচয়পত্র",
+      "ভোটার আইডি",
+      "ভোটার কার্ড",
+      "আইডি কার্ড",
+    ],
 
-    descriptionBn:
-      "জাতীয় পরিচয়পত্র সংক্রান্ত সাধারণ তথ্য ও প্রয়োজনীয় নির্দেশনা।",
+    descriptionBn: "জাতীয় পরিচয়পত্র সংক্রান্ত বিভিন্ন সরকারি সেবা ও তথ্য।",
 
     subServices: [
       {
-        id: "nid-information",
+        id: "nid-correction",
 
-        nameBn: "NID সংক্রান্ত তথ্য",
+        nameBn: "NID তথ্য সংশোধন",
 
-        keywords: ["nid information", "NID তথ্য", "NID সমস্যা", "ভোটার আইডি"],
+        keywords: [
+          "NID সংশোধন",
+          "NID correction",
+          "নাম ভুল",
+          "পিতার নাম ভুল",
+          "মাতার নাম ভুল",
+          "তথ্য সংশোধন",
+        ],
 
-        documents: ["প্রযোজ্য NID/পরিচয় সংক্রান্ত তথ্য"],
+        documents: [
+          "সংশোধনের দাবির সমর্থনে প্রয়োজনীয় supporting document",
+          "প্রযোজ্য ক্ষেত্রে SSC বা সমমানের সনদ",
+          "প্রয়োজন অনুযায়ী জন্ম নিবন্ধন, passport, driving licence বা অন্যান্য প্রমাণপত্র",
+        ],
 
         steps: [
-          "নির্বাচন কমিশনের official NID service portal ব্যবহার করুন।",
-          "আপনার প্রয়োজনীয় service নির্বাচন করুন।",
-          "প্রয়োজনীয় তথ্য প্রদান করে নির্দেশনা অনুসরণ করুন।",
+          "NID-এর official service information যাচাই করুন।",
+          "আপনার সংশোধনের ধরন নির্ধারণ করুন।",
+          "প্রয়োজনীয় supporting documents প্রস্তুত করুন।",
+          "নির্ধারিত পদ্ধতিতে correction application করুন।",
+          "প্রয়োজনে সংশ্লিষ্ট নির্বাচন অফিসের নির্দেশনা অনুসরণ করুন।",
         ],
 
         officialLinks: [
           {
-            title: "Bangladesh NID Services",
-            url: "https://services.nidw.gov.bd/",
+            title: "Bangladesh NID Wing",
+            url: "https://www.nidw.gov.bd/",
+          },
+          {
+            title: "NID Correction Rules",
+            url: "https://nidw.gov.bd/LawsRulesNIDCorrection.php",
           },
         ],
+
+        verification: {
+          verified: true,
+          source: "Bangladesh NID Wing",
+          lastVerified: "2026-10-03",
+        },
       },
     ],
   },
@@ -152,30 +205,134 @@ const services = [
       "গাড়ির লাইসেন্স",
     ],
 
-    descriptionBn: "ড্রাইভিং লাইসেন্স সংক্রান্ত সাধারণ তথ্য ও নির্দেশনা।",
+    descriptionBn:
+      "বাংলাদেশে ড্রাইভিং লাইসেন্স সংক্রান্ত সরকারি সেবা ও আবেদন নির্দেশনা।",
 
     subServices: [
       {
-        id: "driving-license-application",
+        id: "learner-license",
 
-        nameBn: "ড্রাইভিং লাইসেন্স আবেদন",
+        nameBn: "লার্নার বা শিক্ষানবিশ ড্রাইভিং লাইসেন্স",
 
-        keywords: ["নতুন লাইসেন্স", "ড্রাইভিং লাইসেন্স করতে", "লাইসেন্স আবেদন"],
+        keywords: [
+          "learner license",
+          "লার্নার লাইসেন্স",
+          "শিক্ষানবিশ লাইসেন্স",
+          "নতুন লাইসেন্স",
+        ],
 
-        documents: ["প্রযোজ্য পরিচয়পত্র", "প্রয়োজনীয় আবেদন সংক্রান্ত তথ্য"],
+        documents: [
+          "নির্ধারিত আবেদন ফরম",
+          "রেজিস্টার্ড ডাক্তার কর্তৃক মেডিকেল সার্টিফিকেট",
+          "জাতীয় পরিচয়পত্র / জন্ম সনদ / পাসপোর্টের প্রযোজ্য কপি",
+          "নির্ধারিত ফি জমাদানের রশিদ",
+          "প্রয়োজনীয় ছবি",
+        ],
 
         steps: [
-          "BRTA-এর official service portal ব্যবহার করুন।",
-          "প্রযোজ্য driving licence service নির্বাচন করুন।",
-          "আবেদনের প্রয়োজনীয় ধাপগুলো সম্পন্ন করুন।",
+          "BRTA Service Portal-এ প্রবেশ করুন।",
+          "Learner Driving Licence-এর জন্য আবেদন করুন।",
+          "প্রয়োজনীয় তথ্য ও documents প্রদান করুন।",
+          "প্রযোজ্য fee প্রদান করুন।",
+          "BRTA-এর পরবর্তী নির্দেশনা অনুসরণ করুন।",
         ],
 
         officialLinks: [
           {
-            title: "BRTA",
+            title: "BRTA Service Portal",
+            url: "https://bsp.brta.gov.bd/",
+          },
+          {
+            title: "BRTA Driving Licence Information",
+            url: "https://bsp.brta.gov.bd/drivingLicense",
+          },
+        ],
+
+        verification: {
+          verified: true,
+          source: "Bangladesh Road Transport Authority",
+          lastVerified: "2026-10-03",
+        },
+      },
+
+      {
+        id: "smart-card-license",
+
+        nameBn: "স্মার্ট কার্ড ড্রাইভিং লাইসেন্স",
+
+        keywords: [
+          "smart card license",
+          "স্মার্ট কার্ড লাইসেন্স",
+          "ড্রাইভিং লাইসেন্স",
+        ],
+
+        documents: [
+          "নির্ধারিত আবেদন ফরম",
+          "রেজিস্টার্ড ডাক্তার কর্তৃক মেডিকেল সার্টিফিকেট",
+          "জাতীয় পরিচয়পত্র / জন্ম সনদ / পাসপোর্টের প্রযোজ্য কপি",
+          "নির্ধারিত fee জমাদানের রশিদ",
+          "প্রয়োজনীয় ছবি",
+        ],
+
+        steps: [
+          "প্রযোজ্য learner licence-এর প্রক্রিয়া সম্পন্ন করুন।",
+          "BRTA-এর নির্দেশনা অনুযায়ী smart-card driving licence-এর আবেদন করুন।",
+          "প্রয়োজনীয় documents ও fee প্রদান করুন।",
+          "BRTA-এর পরবর্তী নির্দেশনা অনুসরণ করুন।",
+        ],
+
+        officialLinks: [
+          {
+            title: "BRTA Service Portal",
             url: "https://bsp.brta.gov.bd/",
           },
         ],
+
+        verification: {
+          verified: true,
+          source: "Bangladesh Road Transport Authority",
+          lastVerified: "2026-10-03",
+        },
+      },
+
+      {
+        id: "license-renewal",
+
+        nameBn: "ড্রাইভিং লাইসেন্স নবায়ন",
+
+        keywords: [
+          "লাইসেন্স নবায়ন",
+          "driving license renewal",
+          "renew license",
+          "লাইসেন্স renew",
+        ],
+
+        documents: [
+          "নির্ধারিত আবেদন ফরম",
+          "প্রয়োজনীয় মেডিকেল সার্টিফিকেট",
+          "প্রযোজ্য পরিচয়পত্রের কপি",
+          "নির্ধারিত fee জমাদানের রশিদ",
+        ],
+
+        steps: [
+          "BRTA-এর official service portal ব্যবহার করুন।",
+          "Driving Licence Renewal service নির্বাচন করুন।",
+          "প্রয়োজনীয় documents ও fee সংক্রান্ত নির্দেশনা অনুসরণ করুন।",
+          "প্রয়োজনে BRTA নির্ধারিত অফিসে উপস্থিত হয়ে প্রয়োজনীয় প্রক্রিয়া সম্পন্ন করুন।",
+        ],
+
+        officialLinks: [
+          {
+            title: "BRTA Service Portal",
+            url: "https://bsp.brta.gov.bd/",
+          },
+        ],
+
+        verification: {
+          verified: true,
+          source: "Bangladesh Road Transport Authority",
+          lastVerified: "2026-10-03",
+        },
       },
     ],
   },
